@@ -1,0 +1,230 @@
+<!--Jo-Anna Martinez ID: 2305804-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Doughlicious JA - Home</title>
+    <link rel="stylesheet" href="styles.css"/>
+
+</head>
+<body>
+
+<!--Navigation Bar-->
+<nav class="navbar">
+    <div class="logo">Doughlicious <span>JA</span></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cart.html" class="cart-icon">&#128722;<span class="cart-badge" id="cartCount">0</span>
+        </a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<!--Hero Section-->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text-wrap">
+            <span class="hero-badge">&#127471;&#127474; Made in Jamaica</span>
+            <h1 class="hero-title">
+                Baked with <em>Love,</em><br/>Delivered with Joy
+            </h1>
+            <p class="hero-text">
+                Custom cakes, fresh pastries & authentic Jamaican baked goods - crafted for every occasion. Order online, we deliver. 
+            </p>
+            <div class="hero-btns">
+                <a href="products.html" class="btn btn-primary">Shop Now</a>
+                <a href="products.html#custom" class="btn btn-primary">Custom Order</a>
+            </div>
+        </div>
+        <div class="hero-image-wrap">
+            <div class="hero-card">
+                <img src="../assets/cake.jpg" alt="Custom celebration cake by Doughlicious JA"class="hero-card-img"/>
+                <h3>Custom Cakes</h3>
+                <p>Designed just for your special moment</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-num">500+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label">Flavours</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">5&#11088;</div>
+                        <div class="stat-label">Rated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Category Section-->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Browse Categories</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Soothe your sweet tooth</p>
+        <div class="categories-grid">
+            <div class="category-card" onclick="window.location='products.html'">
+                <div class="category-icon">&#127874;</div>
+                <h4>Custom Cakes</h4>
+            </div>
+            <div class="category-card"onclick="window.location='products.html'">
+                <div class="category-icon">&#129473;</div>
+                <h4>Cupcakes</h4>
+            </div>
+            <div class="category-card"onclick="window.location='products.html'">
+                <div class="category-icon">&#127855;</div>
+                <h4>Pastries</h4>
+            </div>
+            <div class="category-card"onclick="window.location='products.html'">
+                <div class="category-icon">&#127850;</div>
+                <h4>Cookies</h4>
+            </div>
+            <div class="category-card"onclick="window.location='products.html'">
+                <div class="category-icon">&#x1F1EF;&#x1F1F2;</div>
+                <h4>Jamaican Classics</h4>
+            </div>
+            <div class="category-card"onclick="window.location='products.html'">
+                <div class="category-icon">&#127873;</div>
+                <h4>Gift Boxes</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Featured Products-->
+<section class="section featured-bg">
+    <div class="container">
+        <h2 class="section-title">Treats</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Our best-selling baked goods</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../assets/cake-strawberry.jpg" alt="Strawberry Dream Cake"/>
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-info">
+                    <h3>Strawberry Dream Cake</h3>
+                    <p>Vanilla sponge, fresh strawberry cream, 3-layer</p>
+                    <div class="product-footer">
+                        <span class="price">J$4,500</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Strawberry Dream Cake', 4500)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../assets/cupcakes-velvet.jpg" alt="Red Velvet Cupcakes"/>
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-info">
+                    <h3>Red Velvet Cupcakes</h3>
+                    <p>Red velvet with cream cheese frosting, pack of 6</p>
+                    <div class="product-footer">
+                        <span class="price">J$1,800</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Red Velvet Cupcakes', 1800)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../assets/bun-spice.jpg" alt="Jamaican Spice Bun"/>
+                </div>
+                <div class="product-info">
+                    <h3>Jamaican Spice Bun</h3>
+                    <p>Traditional Easter bun, rich spices &amp; raisins</p>
+                    <div class="product-footer">
+                        <span class="price">J$850</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Jamaican Spice Bun', 850)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../assets/pastry-coconut.jpg" alt="Coconut Pastries"/>
+                </div>
+                <div class="product-info">
+                    <h3>Coconut Pastry Box</h3>
+                    <p>Flaky coconut-filled pastries, box of 4</p>
+                    <div class="product-footer">
+                        <span class="price">J$1200.00</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Coconut Pastry Box', 1200)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:2.5rem;">
+            <a href="products.html" class="btn btn-secondary">View All Products</a>
+        </div>
+    </div>
+</section>
+<!--Choose Us Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Why Choose Doughlicious JA?</h2>
+        <div class="divider"></div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">&#127912;</div>
+                <h3>Custom Designs</h3>
+                <p>Each cake is crafted to your exact vision and occasion.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">&#127807;</div>
+                <h3>Fresh Ingredients</h3>
+                <p>We use locally sourced, natural ingredients in every batch.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">&#128666;</div>
+                <h3>Islandwide Delivery</h3>
+                <p>We deliver across Jamaica. Right to your doorstep.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">&#127471;&#127474;</div>
+                <h3>Jamaican Roots</h3>
+                <p>Authentic local flavours baked into each product.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Banner-->
+<section class="cta-banner">
+    <h2>Planning a Special Event?</h2>
+    <p>Let us create the perfect customized cake for your celebration. Birthdays, graduations,weddings & more.</p>
+    <a href="products.html#custom" class="btn btn-primary" style="background:white; color:var(--blush-dark);">Order your Custom Cake today</a>
+</section>
+
+<!--Footer-->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Doughlicious JA</h4>
+            <p>Baked with Love,<br/>Delivered with Joy.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a><br/>
+            <a href="products.html">Products</a><br/>
+            <a href="about.html">About Us</a><br/>
+            <a href="login.html">Login</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Kingston, Jamaica<br/>
+            &#128222; 876-999-0123<br/>
+            &#9993;<a href="mailto:jo-annaamartinez&#64;students&#46;utech&#46;edu&#46;jm">
+                    jo-annaamartinez&#64;students&#46;utech&#46;edu&#46;jm</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
