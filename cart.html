@@ -1,0 +1,167 @@
+<!--Jo-Anna Martinez  ID:2305804-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Doughlicious JA - Products</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <!--Navigation-->
+    <nav class="navbar">
+        <div class="logo">Doughlicious <span>JA</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cart.html" class="cart-icon">&#128722;<span class="cart-badge" id="cartCount">0</span>
+            </a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <!--Hero section-->
+    <section class="page-hero">
+        <h1>Your Cart</h1>
+        <div class="divider"></div>
+        <p>Review your items and proceed to checkout</p>
+    </section>
+    <!--Layout-->
+    <div class="cart-layout">
+        <!--items-->
+        <div class="cart-panel">
+            <div class="cart-panel-header">
+                <h3>&#128722; Cart Items</h3>
+                <span id="itemCountLabel" style="font-size:0.85rem; color:#888;">0 items</span>
+            </div>
+            <div id="cartItemsContainer">
+                <div class="empty-cart" id="emptyCartMsg">
+                    <span class="emoji">&#129473;</span>
+                    <p>Your cart is empty.<br/> <a href="products.html" style="color:var(--blush-dark); font-weight:700;">Browse our products &rarr;</a></p>
+                </div>
+            </div>
+            <div class="cart-actions" id="cartActions" style="display:none;">
+                <button class="btn btn-danger" onclick="clearCart()">&#128465;&#65039; Clear All</button>
+                <a href="products.html" class="btn btn-outline">&larr; Continue Shopping</a>
+            </div>
+        </div>
+        <!--Summary-->
+        <div class="summary-panel">
+            <div class="summary-header">
+                <h3>&#128203; Order Summary</h3>
+            </div>
+            <div class="summary-body">
+                <div class="summary-row">
+                    <span class="label">Subtotal</span>
+                    <span class="value" id="summarySubtotal">J$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Discount(5%)</span>
+                    <span class="value discount-val" id="summaryDiscount">-J$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Tax (15% GCT)</span>
+                    <span class="value" id="summaryTax">J$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span class="label">Total</span>
+                    <span class="value" id="summaryTotal">J$0.00</span>
+                </div>
+                <button class="btn btn-primary" style="width:100%; margin-top:1rem; text-align:center;" onclick="scrollToCheckout()">Proceed to Checkout &rarr;</button>
+            </div>
+        </div>
+    </div>
+    <!--Checkout-->
+    <section class="checkout-section" id="checkoutSection">
+        <div class="checkout-card">
+            <h3>&#127968; Shipping & Payment Details</h3>
+            <form id="checkoutForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="shipFirstName">First Name *</label>
+                        <input type="text" id="shipFirstName" placeholder="Jane"/>
+                        <span class="error-msg" id="shipFirstErr">Required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipLastName">Last Name *</label>
+                        <input type="text" id="shipLastName" placeholder="Doe"/>
+                        <span class="error-msg" id="shipLastErr">Required.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shipAddress">Street Address *</label>
+                    <input type="text" id="shipAddress" placeholder="12 Constant Spring Road"/>
+                    <span class="error-msg" id="shipAddErr">Please enter your address.</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="shipCity">City / Parish*</label>
+                        <input type="text" id="shipCity" placeholder="Kingston"/>
+                        <span class="error-msg" id="shipCityErr">Required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipPhone">Phone Number *</label>
+                        <input type="text" id="shipPhone" placeholder="876-999-0123"/>
+                        <span class="error-msg" id="shipPhoneErr">Required.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shipDeliveryDate">Preferred Delivery Date *</label>
+                    <input type="date" id="shipDeliveryDate"/>
+                    <span class="error-msg" id="shipDateErr">Please select a future delivery date.</span>
+                </div>
+                <div class="form-group">
+                    <label for="shipAmount">Amount (J$) *</label>
+                    <input type="number" id="shipAmount" placeholder="0.00" readonly/>
+                </div>
+
+                <!--Checkout preview-->
+                <div style="background:var(--cream); border-radius:var(--radius-sm); padding:1rem; margin:1rem 0;">
+                    <strong>Order Total:</strong>
+                    <span id="checkoutTotal" style="color:var(--sage-dark); font-family:var(--font-display);font-size:1.2rem; margin-left:0.5rem;">J$0.00</span>
+                </div>
+                <div class="checkout-btns">
+                    <button type="button" class="btn btn-danger" onclick="cancelCheckout()">&#10006;Cancel</button>
+                    <button type="button" class="btn btn-outline" onclick="clearCart()">&#128465; Clear All</button>
+                    <button type="button" class="btn btn-secondary" onclick="handleCheckout()">&#10004;Confirm Order</button>
+                </div>
+            </form>
+            <!--Confirmation-->
+            <div id="orderConfirmedMsg">
+                <span class="big-emoji">&#127881;</span>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your order. We'll contact you to confrm your delivery details shortly.</p>
+                <a href="products.html" class="btn btn-primary" style="margin-top:1.5rem; display:inline-block;">Continue Shopping</a>
+            </div>
+
+        </div>
+    </section>
+    <!--Footer-->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Doughlicious JA</h4>
+            <p>Baked with Love,<br/>Delivered with Joy.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a><br/>
+            <a href="products.html">Products</a><br/>
+            <a href="about.html">About Us</a><br/>
+            <a href="login.html">Login</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Kingston, Jamaica<br/>
+            &#128222; 876-999-0123<br/>
+            &#9993;<a href="mailto:jo-annaamartinez&#64;students&#46;utech&#46;edu&#46;jm">
+                    jo-annaamartinez&#64;students&#46;utech&#46;edu&#46;jm</a></p>
+        </div>
+    </div>
+</footer>
+<script src="app.js"></script> 
+</body>
+</html>
