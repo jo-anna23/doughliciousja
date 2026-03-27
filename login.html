@@ -1,0 +1,132 @@
+<!--Jo-Anna Martinez ID: 2305804-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Doughlicious JA - Products</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <!--Navigation-->
+    <nav class="navbar">
+        <div class="logo">Doughlicious <span>JA</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cart.html" class="cart-icon">&#128722;<span class="cart-badge" id="cartCount">0</span>
+            </a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <!--Authentication-->
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <!--Tabs-->
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchTab('login')">Login</button>
+                <button class="auth-tab" id="registerTab" onclick="switchTab('register')">Register</button>
+            </div>
+            <div class="auth-body">
+                <!--Login-->
+                <div class="auth-panel active" id="loginPanel">
+                    <div class="auth-header">
+                        <span class="emoji">&#127874;</span>
+                        <h2>Welcome Back</h2>
+                        <p>Log in to your Doughlicious JA account</p>
+                    </div>
+                    <form id="loginForm" novalidate>
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address *</label>
+                            <input type="email" id="loginEmail" placeholder="jdoe@email.com"/>
+                            <span class="error-msg" id="loginEmailErr">Please enter a valid email address.</span>
+                            <span class="error-msg" id="loginNotFoundErr">No account found with this email. Please register first.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password *</label>
+                            <div class="password-wrap">
+                                <input type="password" id="loginPassword" placeholder="Enter your password"/>
+                                <button type="button" class="toggle-pw" onclick="togglePw('loginPassword', this)">&#128065;</button>
+                            </div>
+                            <span class="error-msg" id="loginPwErr">Password must be at least 6 characters.</span>
+                            <span class="error-msg" id="loginWrongPwErr">Incorrect password. Please try again.</span>
+                        </div>
+                        <button type="button" class="auth-submit" onclick="handleLogin()">Log In</button>
+                        <div class="auth-success" id="loginSuccess">&#9989; Login Successful! Redirecting...</div>
+                        <p class="auth-divider">
+                            Don't have an account? <a onclick="switchTab('register')">Register here</a>
+                        </p>
+                    </form>
+                </div> 
+                <!--Register-->
+                <div class="auth-panel" id="registerPanel">
+                    <div class="auth-header">
+                        <span class="emoji">&#129473;</span>
+                        <h2>Create an Account</h2>
+                        <p>Join the Doughlicious JA family</p>
+                    </div>
+                    <form id="registerForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="regFirstName">First Name *</label>
+                                <input type="text" id="regFirstName" placeholder="Jane"/>
+                                <span class="error-msg" id="regFirstErr">Required.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="regLastName">Last Name *</label>
+                                <input type="text" id="regLastName" placeholder="Doe"/>
+                                <span class="error-msg" id="regLastErr">Required.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regDOB">Date of Birth *</label>
+                            <input type="date" id="regDOB"/>
+                            <span class="error-msg" id="regDOBErr">Please enter your date of birth.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email Address *</label>
+                            <input type="email" id="regEmail" placeholder="jdoe@email.com"/>
+                            <span class="error-msg" id="regemailErr">Please enter a valid email.</span>
+                            <span class="error-msg" id="regEmailTakenErr">An account already exists with this email.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regUsername">Username *</label>
+                            <input type="text" id="regUsername"placeholder="jdoe123"/>
+                            <span class="error-msg" id="regUserErr">Username must be at least 3 characters.</span>
+                            <span class="error-msg" id="regUsernameTakenErr">Username already exists. Please choose another.</span>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password *</label>
+                            <div class="password-wrap">
+                                <input type="password" id="regPassword"placeholder="Create a password"/>
+                                <button type="button" class="toggle-pw"onclick="togglePw('regPassword',this)">&#128065;</button>
+                            </div>
+                            <span class="error-msg" id="regPwErr">Password must be at least 6 characters.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPw">Confirm Password *</label>
+                            <div class="password-wrap">
+                                <input type="password" id="regConfirmPw"placeholder="Re-enter your password"/>
+                                <button type="button" class="toggle-pw" onclick="togglePw('regConfirmPw',this)">&#128065;</button>
+                            </div>
+                            <span class="error-msg" id="regConfirmErr">Passwords do not match.</span>
+                        </div>
+                        <button type="button" class="auth-submit" onclick="handleRegister()">Create Account</button>
+                        <div class="auth-success" id="registerSuccess">&#9989; Account created successfully! You can log in now.</div>
+                        <p class="auth-divider">
+                            Already have an account? <a onclick="switchTab('login')">Log in here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>
